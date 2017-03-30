@@ -1,25 +1,27 @@
-//
-//  ViewController.swift
-//  paging
-//
-//  Created by Hunter Monk on 3/30/17.
-//  Copyright © 2017 Hunter Monk. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        scrollView.delegate = self
+        addControllers()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("contentSize: \(scrollView.contentSize).")
     }
-
-
+    
+    private func addControllers() {
+        let controller = UIViewController()
+        controller.view.backgroundColor = .red
+        
+    }
 }
 
+extension ViewController: UIScrollViewDelegate {
+    
+}
